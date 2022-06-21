@@ -68,4 +68,40 @@ priceArr.splice(4, 1, 'potato')
 //whereToStart(removing/adding from), || if only this is set, it wil delete everything from the specified index, including the item at that position.
 //howManyItemsToRemove,
 //whatToAdd (must comma separated)
-console.log(priceArr);
+
+//join two arrays together (merge)
+let arr1 = [1, 2, 3, 4, 5]
+let arr2 = [6, 7, 8, 9, 10]
+let contatenated = [...arr1, ...arr2, 'abc'] //you can add more than 1, and they don't even have to be arrays
+
+//copy an array
+let copyArr1 = [...arr1] //makes a different array IF WORKING WITH PRIMITIVES. Shallow copy if working with objects (Changing one will change the other)
+
+//copying an array with OBJECTS inside
+const objects = [{
+	n: 1
+}, {
+	n: 2
+}, {
+	n: 3
+}, {
+	n: 4
+}]
+const objectsCopy = JSON.parse(JSON.stringify(objects))
+
+//While loop
+for (let i = 0; i < arr1.length; i += 1) {
+	console.log('val', arr1[i]);
+}
+
+//reverse while loop
+for (i = arr1.length - 1; i >= 0; i -= 1) {
+	console.log('val', arr1[i]);
+}
+
+
+
+//loop in reverse
+// for (let j = arr1.length; j <= 0; j -= 1) {
+// 	console.log('val:', arr1[j]);
+// }
