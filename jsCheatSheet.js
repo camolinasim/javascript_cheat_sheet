@@ -91,12 +91,40 @@ const objectsCopy = JSON.parse(JSON.stringify(objects))
 
 //While loop
 for (let i = 0; i < arr1.length; i += 1) {
-	console.log('val', arr1[i]);
+	// console.log('val', arr1[i]);
 }
 
 //reverse while loop
-for (i = arr1.length - 1; i >= 0; i -= 1) {
-	console.log('val', arr1[i]);
+for (let i = arr1.length - 1; i >= 0; i -= 1) {
+	// console.log('val', arr1[i]);
+}
+
+//loop over values
+for (let val of arr1) {
+	// console.log('val', val);
+}
+
+//break loop over a condition
+for (let val of arr1) { //careful with in/of. In gives you index, of gives you value
+	if (val % 2) continue;
+	// console.log('val', val);
+}
+
+//GOTO WAY TO LOOP AN ARRAY (when you don't need to break in the middle)
+// arr1.forEach(val => console.log('val', val))
+
+//Iterating over an iterator (with a while loop)
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const iter = arr.entries()
+let val = iter.next()
+while (!val.done) {
+	// console.log(val.value);
+	val = iter.next()
+}
+
+//same but with a for loop
+for (let val of arr.entries()) {
+	console.log('val', val);
 }
 
 
