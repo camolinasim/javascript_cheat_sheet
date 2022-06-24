@@ -188,11 +188,11 @@ atLeastOneMeetsCriteria = selectionArr.some(s => s.selected === false)
 
 //change dimentions of an array (flatten)
 const multiArr = [
-		[
-			[1],
-			[2],
-			[3]
-		]
+
+	[
+		[1],
+		[2],
+		[3]
 	],
 	[
 		[
@@ -203,9 +203,22 @@ const multiArr = [
 	],
 	[
 		[
-			[6],
 			[7],
+			[8],
 			[9]
 		]
 	]
-console.log(multiArr);
+]
+
+
+flattened = multiArr.flat(3);
+
+//flatmap - filtering and flattening a multidimentional array
+const nArr = [
+	[1, 3, 4, 1],
+	[3, 1, 6, 2],
+	[4, 9, 0, 1]
+];
+
+flatmapped = nArr.flatMap(a => a.slice(0, 2))
+console.log(flatmapped);
