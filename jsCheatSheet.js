@@ -12,7 +12,7 @@ let a = [
 //set a fixed size
 let nItems = new Array(1000)
 
-//fill an array with a the same value
+//fill/populate an array with a the same value
 nItems.fill(1)
 
 //call a function on every item of the Array
@@ -49,10 +49,10 @@ currencyList = priceArr.toLocaleString('en-US', {
 	currency: 'USD'
 })
 
-//add item to end of Array
+//add/append item to end of Array
 priceArr.push(4, 4)
 
-//add items to beginning of Array
+//add/append items to beginning of Array
 priceArr.unshift(9, 9)
 
 // remove item from end of  Array
@@ -124,12 +124,88 @@ while (!val.done) {
 
 //same but with a for loop
 for (let val of arr.entries()) {
-	console.log('val', val);
+	// console.log('val', val);
 }
-
-
 
 //loop in reverse
 // for (let j = arr1.length; j <= 0; j -= 1) {
 // 	console.log('val:', arr1[j]);
 // }
+
+//find item in array (first occurance)
+let coffeArray = [7, 4, 5, 3, -1, -7, 9, 8, 9]
+let index = coffeArray.indexOf(9) // returns -1 if it doesn't find the value
+
+// find index of item in array (last occurance)
+index = coffeArray.lastIndexOf(9)
+
+//find index of item in array of objects
+a = {
+	n: 1
+}
+b = {
+	n: 2
+}
+c = {
+	n: 4
+}
+arrayOfObjects = []
+arrayOfObjects.push(a, b, c)
+let foundItem = arrayOfObjects.indexOf(c)
+
+// check if array contains/includes a value
+includes4 = coffeArray.includes(4) //returns true/false
+
+//find object in array
+foundObject = arrayOfObjects.find(o => o.n === 2) //returns as soon as it finds first match. Returns undefined if no match
+
+//find index of object in array
+foundObjectIndex = arrayOfObjects.findIndex(o => o.n === 2)
+
+// find/filter all occurrences of an item in array
+let allNines = coffeArray.filter(n => n === 9)
+
+//check if all items on an array meet a certain condition/criteria
+criteria = s => s.selected === true;
+const selectionArr = [{
+		selected: true
+	},
+	{
+		selected: false
+	},
+	{
+		selected: true
+	},
+]
+
+let meetsCriteria = selectionArr.every(_ => {
+	return criteria
+})
+// console.log('meetsCriteria', meetsCriteria);
+
+//check if at least one item in the list meets a certain criteria
+atLeastOneMeetsCriteria = selectionArr.some(s => s.selected === false)
+
+//change dimentions of an array (flatten)
+const multiArr = [
+		[
+			[1],
+			[2],
+			[3]
+		]
+	],
+	[
+		[
+			[4],
+			[5],
+			[6]
+		]
+	],
+	[
+		[
+			[6],
+			[7],
+			[9]
+		]
+	]
+console.log(multiArr);
