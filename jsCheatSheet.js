@@ -166,7 +166,7 @@ foundObjectIndex = arrayOfObjects.findIndex(o => o.n === 2)
 let allNines = coffeArray.filter(n => n === 9)
 
 //check if all items on an array meet a certain condition/criteria
-criteria = s => s.selected === true;
+criteria = s => s.selected === true
 const selectionArr = [{
 		selected: true
 	},
@@ -183,7 +183,7 @@ let meetsCriteria = selectionArr.every(_ => {
 })
 // console.log('meetsCriteria', meetsCriteria);
 
-//check if at least one item in the list meets a certain criteria
+//	check if at least one item in the list meets a certain criteria
 atLeastOneMeetsCriteria = selectionArr.some(s => s.selected === false)
 
 //change dimentions of an array (flatten)
@@ -211,7 +211,7 @@ const multiArr = [
 ]
 
 
-flattened = multiArr.flat(3);
+flattened = multiArr.flat(3)
 
 //flatmap - filtering and flattening a multidimentional array
 const nArr = [
@@ -221,4 +221,17 @@ const nArr = [
 ];
 
 flatmapped = nArr.flatMap(a => a.slice(0, 2))
-console.log(flatmapped);
+
+const numeritos = [-7, 2, -34, 8, 23]
+
+//reverse an array without modifying original array
+reversed = [...numeritos].reverse();
+console.log('reversed:', reversed);
+
+// sort an array in ascending order without modifying original array
+sortedNumbers = [...numeritos].sort((a, b) => a - b)
+console.log('numbers:', numeritos, '\nsortedAscending:', sortedNumbers);
+
+// sort an array in descending order without modifying original array
+sortedDescending = [...numeritos].sort((a, b) => b - a)
+console.log('sortedDescending:', sortedDescending);

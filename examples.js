@@ -34,3 +34,16 @@ const expensiveProducts = products.filter(isExpensive)
 console.log('cheap:', cheapProducts, '\n\nexpensive:', expensiveProducts);
 
 //cuanto gastas en comprar todos los productos baratos?
+
+const numbers = [-2, 1]
+const output = sortedSquaredArray(numbers)
+console.log('output', output);
+
+function sortedSquaredArray(array) {
+	const sorted = array.sort(function(a, b) {
+		return a - b
+	})
+	console.log(sorted)
+	sortedSquared = sorted.map(n => n ** 2)
+	return sortedSquared;
+}
