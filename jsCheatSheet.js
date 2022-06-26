@@ -235,3 +235,18 @@ sortedDescending = [...numeritos].sort((a, b) => b - a)
 
 //restructuring an array
 const [first, second, ...rest] = numeritos
+
+//restructuring an object
+const order = {
+	name: 'cafeAmericano',
+	flavor: 'dark',
+	price: 40,
+	rating: '7/10'
+}
+
+const {
+	name,
+	rating,
+	...restOfOrder
+} = order
+console.log(name, rating, restOfOrder);
