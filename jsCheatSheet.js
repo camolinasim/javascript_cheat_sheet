@@ -99,7 +99,7 @@ for (let i = arr1.length - 1; i >= 0; i -= 1) {
 	// console.log('val', arr1[i]);
 }
 
-//loop over values
+//loop over values (for of/loop of)
 for (let val of arr1) {
 	// console.log('val', val);
 }
@@ -226,12 +226,12 @@ const numeritos = [-7, 2, -34, 8, 23]
 
 //reverse an array without modifying original array
 reversed = [...numeritos].reverse();
-console.log('reversed:', reversed);
 
 // sort an array in ascending order without modifying original array
 sortedNumbers = [...numeritos].sort((a, b) => a - b)
-console.log('numbers:', numeritos, '\nsortedAscending:', sortedNumbers);
 
 // sort an array in descending order without modifying original array
 sortedDescending = [...numeritos].sort((a, b) => b - a)
-console.log('sortedDescending:', sortedDescending);
+
+//restructuring an array
+const [first, second, ...rest] = numeritos
