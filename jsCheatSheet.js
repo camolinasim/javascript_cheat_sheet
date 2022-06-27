@@ -249,4 +249,5 @@ const {
 	rating,
 	...restOfOrder
 } = order
-console.log(name, rating, restOfOrder);
+console.log(name, rating, restOfOrder)
+//hi
