@@ -101,56 +101,76 @@
 //
 // console.log(isMonotonic(input));
 
-/**
- * @param {string} s
- * @return {number}
- */
-var romanToInt = function(s) {
-	//make a list of when I, X and C can be read as subtractions
-	const valueMap = {
-		I: 1,
-		V: 5,
-		X: 10,
-		L: 50,
-		C: 100,
-		D: 500,
-		M: 1000
+// /**
+//  * @param {string} s
+//  * @return {number}
+//  */
+// var romanToInt = function(s) {
+// 	//make a list of when I, X and C can be read as subtractions
+// 	const valueMap = {
+// 		I: 1,
+// 		V: 5,
+// 		X: 10,
+// 		L: 50,
+// 		C: 100,
+// 		D: 500,
+// 		M: 1000
+// 	}
+//
+//
+// 	const iSubtractCases = ['V', 'X']
+// 	const xSubtractCases = ['L', 'C']
+// 	const cSubtractCases = ['D', 'M']
+// 	let sum = 0
+//
+// 	let romanNumeral = Array.from(s)
+//
+// 	romanNumeral.forEach((character, i) => {
+// 		let nextCharacter = romanNumeral[i + 1]
+//
+// 		switch (character) {
+// 			case 'I':
+// 				//check if the next character is in ISubtractCases. If it is, subtract it from sum. Otherwise, add it to sum.
+// 				if (iSubtractCases.includes(nextCharacter)) sum -= valueMap.I
+// 				else sum += valueMap[character]
+// 				break;
+// 			case 'X':
+// 				if (xSubtractCases.includes(nextCharacter)) sum -= valueMap.X
+// 				else sum += valueMap[character]
+//
+// 				break;
+// 			case 'C':
+// 				if (cSubtractCases.includes(nextCharacter)) sum -= valueMap.C
+// 				else sum += valueMap[character]
+// 				break;
+// 			default:
+// 				sum += valueMap[character]
+// 		}
+// 		// console.log(sum);
+// 	})
+//
+//
+// 	return sum
+//
+// };
+// romanToInt('III')
+
+//return first repeated character in string
+
+function firstRepeatedCharacter(s) {
+	let userInput = Array.from(s)
+	let seenCharacters = []
+	let repeatedCharacter = ''
+	let currentCharacter = ''
+	for (let i = 0; i < userInput.length; i++) {
+		currentCharacter = userInput[i]
+		if (seenCharacters.includes(currentCharacter)) {
+			repeatedCharacter = currentCharacter
+			return repeatedCharacter
+		} else seenCharacters.push(currentCharacter)
 	}
+}
 
 
-	const iSubtractCases = ['V', 'X']
-	const xSubtractCases = ['L', 'C']
-	const cSubtractCases = ['D', 'M']
-	let sum = 0
-
-	let romanNumeral = Array.from(s)
-
-	romanNumeral.forEach((character, i) => {
-		let nextCharacter = romanNumeral[i + 1]
-
-		switch (character) {
-			case 'I':
-				//check if the next character is in ISubtractCases. If it is, subtract it from sum. Otherwise, add it to sum.
-				if (iSubtractCases.includes(nextCharacter)) sum -= valueMap.I
-				else sum += valueMap[character]
-				break;
-			case 'X':
-				if (xSubtractCases.includes(nextCharacter)) sum -= valueMap.X
-				else sum += valueMap[character]
-
-				break;
-			case 'C':
-				if (cSubtractCases.includes(nextCharacter)) sum -= valueMap.C
-				else sum += valueMap[character]
-				break;
-			default:
-				sum += valueMap[character]
-		}
-		// console.log(sum);
-	})
-
-
-	return sum
-
-};
-romanToInt('III')
+a = firstRepeatedCharacter('aacc')
+console.log(a);
