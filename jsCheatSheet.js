@@ -33,7 +33,7 @@ const allKeys = Array.from(nameArr.keys())
 //get all values of an Array
 const allValues = Array.from(nameArr.values())
 
-//get all value-pair of an Array
+//get all value pair of an Array
 const allKeyValuePairs = Array.from(nameArr.entries())
 
 //toString an Array (USE ONLY WITH PRIMITIVE DATA TYPES)
@@ -132,7 +132,7 @@ for (let val of arr.entries()) {
 // 	console.log('val:', arr1[j]);
 // }
 
-//find item in array (first occurance)
+//find the index of an item in the array (first occurance)
 let coffeArray = [7, 4, 5, 3, -1, -7, 9, 8, 9]
 let index = coffeArray.indexOf(9) // returns -1 if it doesn't find the value
 
@@ -249,5 +249,25 @@ const {
 	rating,
 	...restOfOrder
 } = order
-console.log(name, rating, restOfOrder)
-//hi
+
+
+//sort an array by alphabetical order (and ignore capitals +  special characters like á é í )
+const stringArray = ['Zazu', 'hiena', 'elefante', 'jirafa']
+sortedStringArray = [...stringArray].sort((a, b) => a.localeCompare(b))
+
+// find max in object /find min in hashtable
+let obj = {
+	a: 4,
+	b: 0.5,
+	c: 0.35,
+	d: 5
+};
+let arr = Object.values(obj);
+let min = Math.min(...arr);
+let max = Math.max(...arr);
+
+//find key by value in object
+function getObjKey(obj, value) {
+	return Object.keys(obj)
+		.find(key => obj[key] === value);
+}

@@ -156,21 +156,79 @@
 // romanToInt('III')
 
 //return first repeated character in string
+//
+// function firstRepeatedCharacter(s) {
+// 	let userInput = Array.from(s)
+// 	let seenCharacters = []
+// 	let repeatedCharacter = ''
+// 	let currentCharacter = ''
+// 	for (let i = 0; i < userInput.length; i++) {
+// 		currentCharacter = userInput[i]
+// 		if (seenCharacters.includes(currentCharacter)) {
+// 			repeatedCharacter = currentCharacter
+// 			return repeatedCharacter
+// 		} else seenCharacters.push(currentCharacter)
+// 	}
+// }
+//
+//
+// a = firstRepeatedCharacter('aacc')
+// console.log(a);
+//
+// function isValidSubsequence(array, sequence) {
+// 	const subSequence = []
+// 	for (item of array) {
+// 		if (sequence.includes(item)) {
+// 			subSequence.push(item)
+// 		}
+// 	}
+// 	return sequence.every((item, index) => item === subSequence[index])
+// }
+//
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10]));
+'use strict'
 
-function firstRepeatedCharacter(s) {
-	let userInput = Array.from(s)
-	let seenCharacters = []
-	let repeatedCharacter = ''
-	let currentCharacter = ''
-	for (let i = 0; i < userInput.length; i++) {
-		currentCharacter = userInput[i]
-		if (seenCharacters.includes(currentCharacter)) {
-			repeatedCharacter = currentCharacter
-			return repeatedCharacter
-		} else seenCharacters.push(currentCharacter)
-	}
+
+function tournamentWinner(competitions, results) {
+	let scoreTable = {}
+	let roundWinner = null
+	let isHomeWin = null
+	let listOfTeams = competitions.flat(1)
+
+	//create a hashtable with the names of each team and their value initialized to 0
+	listOfTeams.forEach((item, i) => {
+		scoreTable[item] = 0
+	});
+
+	//for each element of competitions
+	competitions.forEach((item, i) => {
+		//check which of the two teams won
+		isHomeWin = results[i]
+		if (isHomeWin) roundWinner = competitions[i][0]
+		else roundWinner = competitions[i][1]
+
+		//record the winner in hashtable
+		scoreTable[roundWinner] += 3
+
+	});
+
+	let arr = Object.values(scoreTable);
+	let max = Math.max(...arr);
+
+	//return the highest value in hashtable
+
+	return Object.keys(scoreTable)
+		.find(score => scoreTable[score] === max);
 }
 
 
-a = firstRepeatedCharacter('aacc')
-console.log(a);
+const competitions = [
+	["HTML", "C#"],
+	["C#", "Python"],
+	["Python", "HTML"]
+]
+
+const results = [0, 0, 1]
+
+const a = tournamentWinner(competitions, results)
+console.log('Tournament Winner:', a);
