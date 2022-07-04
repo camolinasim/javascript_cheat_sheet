@@ -271,3 +271,26 @@ function getObjKey(obj, value) {
 	return Object.keys(obj)
 		.find(key => obj[key] === value);
 }
+
+//convert object to key value array
+let vgmSongList = {
+	title: 'maybe',
+	fairyFlying: 'maybe',
+	house: 'maybe',
+	kokiryForest: true,
+	lostWoods: true,
+	fairyFountain: true,
+	shop: true,
+	shootingGallery: 'maybe',
+	kakarikoVillage: true,
+	songOfStorms: true,
+	lonLonRanch: true,
+	zorasDomain: true,
+}
+
+const vgmKeyValueArray = Object.entries(vgmSongList);
+
+// return a subset of an array / return a portion of an array
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+fromIndexToEnd = animals.slice(3) //duck, elephant
+fromIndexToIndex = animals.slice(2, 4) //camel, duck (end not included)

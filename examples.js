@@ -218,7 +218,7 @@ function tournamentWinner(competitions, results) {
 	//return the highest value in hashtable
 
 	return Object.keys(scoreTable)
-		.find(score => scoreTable[score] === max);
+		.find(team => scoreTable[team] === max);
 }
 
 
@@ -228,7 +228,7 @@ const competitions = [
 	["Python", "HTML"]
 ]
 
-const results = [0, 0, 1]
+const results = [0, 1, 0]
 
 const a = tournamentWinner(competitions, results)
 console.log('Tournament Winner:', a);
