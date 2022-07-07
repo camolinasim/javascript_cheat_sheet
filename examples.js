@@ -186,49 +186,72 @@
 // }
 //
 // console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10]));
+// 'use strict'
+//
+//
+// function tournamentWinner(competitions, results) {
+// 	let scoreTable = {}
+// 	let roundWinner = null
+// 	let isHomeWin = null
+// 	let listOfTeams = competitions.flat(1)
+//
+// 	//create a hashtable with the names of each team and their value initialized to 0
+// 	listOfTeams.forEach((item, i) => {
+// 		scoreTable[item] = 0
+// 	});
+//
+// 	//for each element of competitions
+// 	competitions.forEach((item, i) => {
+// 		//check which of the two teams won
+// 		isHomeWin = results[i]
+// 		if (isHomeWin) roundWinner = competitions[i][0]
+// 		else roundWinner = competitions[i][1]
+//
+// 		//record the winner in hashtable
+// 		scoreTable[roundWinner] += 3
+//
+// 	});
+//
+// 	let arr = Object.values(scoreTable);
+// 	let max = Math.max(...arr);
+//
+// 	//return the highest value in hashtable
+//
+// 	return Object.keys(scoreTable)
+// 		.find(team => scoreTable[team] === max);
+// }
+//
+//
+// const competitions = [
+// 	["HTML", "C#"],
+// 	["C#", "Python"],
+// 	["Python", "HTML"]
+// ]
+//
+// const results = [0, 1, 0]
+//
+// const a = tournamentWinner(competitions, results)
+// console.log('Tournament Winner:', a);
+
 'use strict'
 
-
-function tournamentWinner(competitions, results) {
-	let scoreTable = {}
-	let roundWinner = null
-	let isHomeWin = null
-	let listOfTeams = competitions.flat(1)
-
-	//create a hashtable with the names of each team and their value initialized to 0
-	listOfTeams.forEach((item, i) => {
-		scoreTable[item] = 0
-	});
-
-	//for each element of competitions
-	competitions.forEach((item, i) => {
-		//check which of the two teams won
-		isHomeWin = results[i]
-		if (isHomeWin) roundWinner = competitions[i][0]
-		else roundWinner = competitions[i][1]
-
-		//record the winner in hashtable
-		scoreTable[roundWinner] += 3
-
-	});
-
-	let arr = Object.values(scoreTable);
-	let max = Math.max(...arr);
-
-	//return the highest value in hashtable
-
-	return Object.keys(scoreTable)
-		.find(team => scoreTable[team] === max);
-}
-
-
-const competitions = [
-	["HTML", "C#"],
-	["C#", "Python"],
-	["Python", "HTML"]
-]
-
-const results = [0, 1, 0]
-
-const a = tournamentWinner(competitions, results)
-console.log('Tournament Winner:', a);
+//
+// function findClosestValueInBst(tree, target) {
+// 	// Write your code here.
+// 	let closestValue = tree.root
+// 	//look at root. If target is greater than root, go right. Otherwise, go left
+// 	while
+// 	if (target > tree.root) closestValue =
+// }
+//
+// // This is the class of the input tree. Do not edit.
+// class BST {
+// 	constructor(value) {
+// 		this.value = value;
+// 		this.left = null;
+// 		this.right = null;
+// 	}
+// }
+//
+// // Do not edit the line below.
+// exports.findClosestValueInBst = findClosestValueInBst;
