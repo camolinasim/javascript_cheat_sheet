@@ -63,7 +63,7 @@ priceArr.pop()
 removedFromBeginning = priceArr.shift()
 priceArr.shift()
 
-//remove item from specific index
+//remove item from specific index - remove element from end of array
 priceArr.splice(4, 1, 'potato')
 //whereToStart(removing/adding from), || if only this is set, it wil delete everything from the specified index, including the item at that position.
 //howManyItemsToRemove,
@@ -77,7 +77,7 @@ let contatenated = [...arr1, ...arr2, 'abc'] //you can add more than 1, and they
 //copy an array
 let copyArr1 = [...arr1] //makes a different array IF WORKING WITH PRIMITIVES. Shallow copy if working with objects (Changing one will change the other)
 
-//copying an array with OBJECTS inside
+//copying an array with OBJECTS inside //copy an object
 const objects = [{
 	n: 1
 }, {
@@ -89,47 +89,46 @@ const objects = [{
 }]
 const objectsCopy = JSON.parse(JSON.stringify(objects))
 
-//While loop
-for (let i = 0; i < arr1.length; i += 1) {
-	// console.log('val', arr1[i]);
+//for loop
+for (let i = 0; i < arr1.length; i++) {
+
 }
 
 //reverse while loop
-for (let i = arr1.length - 1; i >= 0; i -= 1) {
-	// console.log('val', arr1[i]);
+for (let i = arr1.length - 1; i >= 0; i--) {
+
 }
 
 //loop over values (for of/loop of)
 for (let val of arr1) {
-	// console.log('val', val);
+
 }
 
 //break loop over a condition
 for (let val of arr1) { //careful with in/of. In gives you index, of gives you value
 	if (val % 2) continue;
-	// console.log('val', val);
+
 }
 
 //GOTO WAY TO LOOP AN ARRAY (when you don't need to break in the middle)
-// arr1.forEach(val => console.log('val', val))
+// arr1.forEach(val => log('val', val))
 
 //Iterating over an iterator (with a while loop)
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const iter = arr.entries()
 let val = iter.next()
 while (!val.done) {
-	// console.log(val.value);
 	val = iter.next()
 }
 
 //same but with a for loop
 for (let val of arr.entries()) {
-	// console.log('val', val);
+
 }
 
 //loop in reverse
 // for (let j = arr1.length; j <= 0; j -= 1) {
-// 	console.log('val:', arr1[j]);
+
 // }
 
 //find the index of an item in the array (first occurance)
@@ -181,7 +180,6 @@ const selectionArr = [{
 let meetsCriteria = selectionArr.every(_ => {
 	return criteria
 })
-// console.log('meetsCriteria', meetsCriteria);
 
 //	check if at least one item in the list meets a certain criteria
 atLeastOneMeetsCriteria = selectionArr.some(s => s.selected === false)
@@ -236,20 +234,26 @@ sortedDescending = [...numeritos].sort((a, b) => b - a)
 //restructuring an array
 const [first, second, ...rest] = numeritos
 
-//restructuring an object
+//restructuring an object | destructuring an object
 const order = {
 	name: 'cafeAmericano',
 	flavor: 'dark',
 	price: 40,
-	rating: '7/10'
+	rating: '7/10',
+	nestedValue: {
+		something: 'im a nested value',
+		somethingElse: 'im another nested value'
+	}
 }
 
 const {
 	name,
 	rating,
+	nestedValue: { //you can also select nested values
+		somethingElse
+	},
 	...restOfOrder
 } = order
-
 
 //sort an array by alphabetical order (and ignore capitals +  special characters like á é í )
 const stringArray = ['Zazu', 'hiena', 'elefante', 'jirafa']
@@ -262,7 +266,7 @@ let obj = {
 	c: 0.35,
 	d: 5
 };
-let arr = Object.values(obj);
+let arrr = Object.values(obj);
 let min = Math.min(...arr);
 let max = Math.max(...arr);
 
@@ -294,3 +298,57 @@ const vgmKeyValueArray = Object.entries(vgmSongList);
 const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
 fromIndexToEnd = animals.slice(3) //duck, elephant
 fromIndexToIndex = animals.slice(2, 4) //camel, duck (end not included)
+
+//combine two objects
+const personOne = {
+	name: 'Kyle',
+	age: 24,
+	addres: {
+		city: 'somewhere',
+		state: 'one of them'
+	}
+}
+
+const personTwo = {
+	age: 32,
+	favoriteFood: 'watermelon'
+}
+
+const personThree = { //take everything inside of personOne, then everything inside personTwo and override personOne.
+	...personOne,
+	...personTwo
+}
+
+//practical use of destructuring for passing function arguments
+function printNameAndAge({
+	name,
+	age
+}) {
+	// log(`name: ${name}, age: ${age}`);
+}
+
+printNameAndAge(personThree)
+
+//map methods
+let sherlock = {
+	name: 'Sherlock'
+}
+let watson = {
+	name: 'Watson'
+}
+
+//create a map
+let characters = new Map();
+//add element to map
+characters.set(sherlock, 'detective')
+characters.set(watson, 'doctor')
+
+//return an element from map | retrieve element from map | get element from map
+
+console.log(characters.get(sherlock), characters.get(watson));
+
+//iterating over map
+for (let [key, value] of characters) {
+	// if(value === something)
+	// return key
+}

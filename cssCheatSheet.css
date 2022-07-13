@@ -1,0 +1,68 @@
+/* pseudo classes */
+/* select links that the user hasn't clicked on */
+a:link {
+  color: red;
+}
+
+/* select visited links */
+a:visited {
+  color: green;
+}
+
+/* select input that user is currently using */
+input:focus {
+  outline: 2px solid blue;
+}
+
+/* select inputs with invalid input */
+/* input:invalid {
+  outline: 2px solid red;
+} */
+/* read if input is invalid after input not in focus */
+input:invalid:not(:focus) {
+  outline: 2px solid red;
+}
+
+/* select first element of a certain tag */
+p:first-of-type {
+  color: yellow
+}
+
+/* select last element of a certain tag */
+p:last-of-type {
+  color: yellow
+}
+
+/* select all odd tags */
+p:nth-of-type(odd) {
+  color: orange
+}
+
+/* select all even tags */
+p:nth-of-type(odd) {
+  color: orange
+}
+
+/* You see that tag? That's somebody's child. Find that child */
+h5:first-child {
+  background-color: green
+}
+
+/* pseudo elements (select portion of an element)*/
+/* select first letter of a tag */
+p::first-letter {
+  font-size: 2em
+}
+
+/* add something before a tag */
+p::before {
+  content: ">"
+}
+
+p::after {
+  content: "!"
+}
+
+/* block element: span the entire length of their parent. They always start on a new line */
+/* inline element: they start immediately after the previous element. With and Height have no effect on them. They span the width of their content */
+/* inline-block elemenet: they start immediately after the content before them, they span the width of their content, but this can be changed */
