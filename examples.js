@@ -27,6 +27,7 @@ var singleNumber = function(nums) {
 	for (let n of nums) {
 		map.set(n, map.get(n) + 1 || 1)
 	}
+	console.log(map);
 	for (let [key, val] of map) {
 		if (val === 1) {
 			return key
@@ -35,5 +36,5 @@ var singleNumber = function(nums) {
 
 };
 
-let nums = [2, 2, 1]
-console.log(singleNumber(nums));
+let nums = [2, 2, 1, 3, 3, 4, 4, 5, 5, 6, 6]
+console.log('answer:', singleNumber(nums));
