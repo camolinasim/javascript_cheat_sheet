@@ -352,3 +352,6 @@ for (let [key, value] of characters) {
 	// if(value === something)
 	// return key
 }
+
+//sort ascending/descending on condition | ternary operator
+// array.sort((a,b) => condition ? a-b : b-a)

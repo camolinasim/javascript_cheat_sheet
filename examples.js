@@ -1,33 +1,46 @@
-function classPhotos(redShirtHeights, blueShirtHeights) {
+'use strict'
+
+function tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest) {
 	// Write your code here.
-	//sort your kids by smallest height (tiny guys first)
-	let redKids = [...redShirtHeights].sort((a, b) => b - a)
-	let blueKids = [...blueShirtHeights].sort((a, b) => b - a)
-	let isEveryRedKidTaller = false
-	let isEveryBlueKidTaller = false
+	let sortedRedSpeeds = null
+	let sortedBlueSpeeds = null
+	let totalSpeed = 0
+	let redTotalSpeed = redShirtSpeeds.reduce((accumulator, speed) => accumulator + speed, 0)
+	let blueTotalSpeed = blueShirtSpeeds.reduce((accumulator, speed) => accumulator + speed, 0)
+	let isRedTeamFaster = redTotalSpeed > blueTotalSpeed ? true : false
 
-	console.log('red', redKids);
-	console.log('blue', blueKids);
-
-	//find the tallest kid and determine whether he's wearing red or blue.
-	const tallestRed = redKids[0]
-	const tallestBlue = blueKids[0]
-	const shirtColorInFrontRow = tallestRed > tallestBlue ? 'red' : 'blue'
-	console.log(shirtColorInFrontRow);
-
-	if (shirtColorInFrontRow === 'red')
-		isEveryRedKidTaller = redKids.every((redHeight, i) => redHeight > blueKids[i])
-
-	else
-		isEveryBlueKidTaller = blueKids.every((blueHeight, i) => blueHeight > redKids[i])
+	if (fastest) {
+		if (isRedTeamFaster === true) {
+			sortedRedSpeeds = [...redShirtSpeeds].sort((a, b) => b - a)
+			sortedBlueSpeeds = [...blueShirtSpeeds].sort((a, b) => a - b)
+		} else {
+			sortedBlueSpeeds = [...blueShirtSpeeds].sort((a, b) => b - a)
+			sortedRedSpeeds = [...redShirtSpeeds].sort((a, b) => a - b)
+		}
 
 
-	return isEveryBlueKidTaller || isEveryRedKidTaller
+		for (let i = 0; i < sortedRedSpeeds.length; i++) {
+			totalSpeed += Math.max(sortedRedSpeeds[i], sortedBlueSpeeds[i])
+		}
+	} else {
+		//find the slowest team
+		if (isRedTeamFaster) { //that means blue team is slower, so we sort them in reverse and the other on ascending
+			sortedBlueSpeeds = [...blueShirtSpeeds].sort((a, b) => b - a)
+			sortedRedSpeeds = [...redShirtSpeeds].sort((a, b) => b - a)
+		} else {
+			sortedBlueSpeeds = [...blueShirtSpeeds].sort((a, b) => b - a)
+			sortedRedSpeeds = [...redShirtSpeeds].sort((a, b) => b - a)
+		}
+		for (let i = 0; i < sortedRedSpeeds.length; i++) {
+			totalSpeed += Math.max(sortedRedSpeeds[i], sortedBlueSpeeds[i])
+		}
+		console.log('isRedTeamFaster:', isRedTeamFaster, 'red speeds: ', sortedRedSpeeds, 'blue speeds: ', sortedBlueSpeeds, 'total speed:', totalSpeed);
 
+	}
+	return totalSpeed
 }
 
-const blue = [6, 9, 2, 4, 5]
-const red = [5, 8, 1, 3, 4]
+let red = [5, 4, 3, 2, 1]
+let blue = [1, 2, 3, 4, 5]
 
-const ans = classPhotos(red, blue)
-console.log('answer:', ans);
+console.log(tandemBicycle(red, blue, false));
