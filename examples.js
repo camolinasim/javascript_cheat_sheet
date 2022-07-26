@@ -1,9 +1,9 @@
 function containsDuplicates(array) {
 	mySet = new Set(array)
 	console.log(mySet);
-	const hasDuplicate = mySet.length === array.length ? false : true
+	const hasDuplicate = mySet.size === array.length ? false : true
 	return hasDuplicate
 }
 
-a = [1, 2, 1, 2, 1, 2, 1, 5, 4, 5, 4, 5, 4, 5]
+a = [1, 2, 3]
 console.log(containsDuplicates(a));
