@@ -23,6 +23,8 @@ pi = 3.141592
 Also acceptable:
 value_of_pi = 3.141592
 
+Side note: by convention, python variables are written with an _ in place of every space. (value of pi => value_of_pi)
+
 Naming a variable 'x' tells the reader NOTHING about what the variable contains/stores. If we name it 'pi', or 'value_of_pi', it is immediately obvious to the programmer what this variable holds. Remember, code readability is KING in programming, and it separates bad programmers from good ones.
 
 Another very, VERY important concept of variables is called Scoping, and it defines where a variable is accessible/visible. We will look at scoping after we go over functions. Optionally, you can watch this video to get introduced to variable scoping: https://www.youtube.com/watch?v=wueXfiVkw1I
