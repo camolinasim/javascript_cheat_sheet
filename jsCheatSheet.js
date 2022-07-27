@@ -369,3 +369,11 @@ function returnDuplicates(arr) {
 	}
 	return duplicateNumbers
 }
+
+
+//remove duplicates
+function containsDuplicates(array) {
+	mySet = new Set(array)
+	const hasDuplicate = mySet.size === array.length ? false : true
+	return hasDuplicate
+}
